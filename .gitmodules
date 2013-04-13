@@ -1,0 +1,21 @@
+[submodule "vim/bundle/vim-sensible"]
+	path = vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "vim/bundle/a.vim"]
+	path = vim/bundle/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "vim/bundle/bufexplorer"]
+	path = vim/bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip
+[submodule "vim/bundle/clang_complete"]
+	path = vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/vim-opencl"]
+	path = vim/bundle/vim-opencl
+	url = https://github.com/petRUShka/vim-opencl.git
