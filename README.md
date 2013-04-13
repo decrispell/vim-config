@@ -8,7 +8,7 @@ The easiest way to use this repository is to check out a local copy and create t
 
 <code>  
 cd ~  
-git clone https://github.com/decrispell/vim-config.git vim-config  
+git clone --recursive https://github.com/decrispell/vim-config.git vim-config  
 ln -s vim-config/vimrc .vimrc  
 ln -s vim-config/gvimrc .gvimrc  
 ln -s vim-config/vim .vim
