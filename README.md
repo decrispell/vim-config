@@ -6,10 +6,9 @@ Plugins are managed using "pathogen", and stored as git submodules in the "bundl
 
 The easiest way to use this repository is to check out a local copy and create the appropriate links, e.g.  
 
-<code>  
-cd ~  
-git clone --recursive https://github.com/decrispell/vim-config.git vim-config  
-ln -s vim-config/vimrc .vimrc  
-ln -s vim-config/gvimrc .gvimrc  
-ln -s vim-config/vim .vim
-</code>
+<code>cd ~</code>  
+<code>git clone --recursive https://github.com/decrispell/vim-config.git vim-config</code>  
+<code>ln -s vim-config/vimrc .vimrc</code>  
+<code>ln -s vim-config/gvimrc .gvimrc</code>  
+<code>ln -s vim-config/vim .vim</code>  
+
