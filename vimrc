@@ -1,3 +1,11 @@
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+" no clang on windows, so don't use clang_complete
+if has("win32")
+  call add(g:pathogen_disabled, 'clang_complete')
+endif
+
+"load plugins in the "bundle" directory via pathogen
 execute pathogen#infect()
 
 "highlight search things
