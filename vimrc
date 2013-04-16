@@ -20,6 +20,9 @@ set expandtab
 " ,cd changes directory to location of current file
 noremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+" ,z switches to previous buffer
+noremap ,z :e#<CR>
+
 "Filetype associations
 " txx template files
 au BufNewFile,BufRead *.txx set filetype=cpp
