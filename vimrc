@@ -22,6 +22,8 @@ noremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " ,z switches to previous buffer
 noremap ,z :e#<CR>
+" ,b loads bufexplorer plugin
+map ,b \be
 
 "Filetype associations
 " txx template files
@@ -39,7 +41,8 @@ set smartcase
 set nu
 
 " set color scheme: .gvimrc should override for gvim
-colorscheme wombat256
+colorscheme solarized
+set background=dark
 
 " use Ctrl+h,j,k,l to move between windows
 :nmap <C-h> <C-w>h
