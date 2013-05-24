@@ -7,6 +7,8 @@ endif
 
 "load plugins in the "bundle" directory via pathogen
 execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 "highlight search things
 set hlsearch 
@@ -53,4 +55,7 @@ set background=dark
 " obtain include paths for syntastic from the .clang_complete files
 let g:syntastic_c_config_file='.clang_complete'
 let g:syntastic_cpp_config_file='.clang_complete'
+
+" disable auto-commenting on subsequent lines
+au FileType c,cpp setlocal comments-=:// comments+=f://
 
