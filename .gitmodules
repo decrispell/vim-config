@@ -1,27 +1,36 @@
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+  ignore = untracked
 [submodule "vim/bundle/a.vim"]
 	path = vim/bundle/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
+  ignore = untracked
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip
+  ignore = untracked
 [submodule "vim/bundle/clang_complete"]
 	path = vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+  ignore = untracked
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+  ignore = untracked
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+  ignore = untracked
 [submodule "vim/bundle/vim-opencl"]
 	path = vim/bundle/vim-opencl
 	url = https://github.com/petRUShka/vim-opencl.git
+  ignore = untracked
 [submodule "vim/bundle/conque-term"]
 	path = vim/bundle/conque-term
 	url = https://github.com/rosenfeld/conque-term.git
+  ignore = untracked
 [submodule "vim/bundle/snipmate.vim"]
 	path = vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
+  ignore = untracked
