@@ -34,3 +34,6 @@
 	path = vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
   ignore = untracked
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git
