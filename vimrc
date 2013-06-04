@@ -54,8 +54,9 @@ set background=dark
 :nmap <C-k> <C-w>k
 
 " obtain include paths for syntastic from the .clang_complete files
-let g:syntastic_c_config_file='.clang_complete'
-let g:syntastic_cpp_config_file='.clang_complete'
+"let g:syntastic_c_config_file='.clang_complete'
+"let g:syntastic_cpp_config_file='.clang_complete'
+let g:ycm_global_ycm_extra_conf = '/home/dec/vim-config/scripts/ycm_use_clang_complete.py'
 
 " disable auto-commenting on subsequent lines
 au FileType c,cpp setlocal comments-=:// comments+=f://
