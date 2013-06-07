@@ -21,13 +21,15 @@ set shiftwidth=2
 " insert spaces in place of <tab> - use CTRL-V<Tab> to insert a real tab
 set expandtab
 
+" use the comma key as <leader> - easier to reach than \
+let mapleader = ","
 " ,cd changes directory to location of current file
-noremap ,cd :cd %:p:h<CR>:pwd<CR>
+noremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " ,z switches to previous buffer
-noremap ,z :e#<CR>
+noremap <leader>z :e#<CR>
 " ,b loads bufexplorer plugin
-map ,b \be
+noremap <silent> <leader>b :BufExplorer<CR>
 
 "Filetype associations
 " txx template files
@@ -54,11 +56,31 @@ set background=dark
 :nmap <C-j> <C-w>j
 :nmap <C-k> <C-w>k
 
-" obtain include paths for syntastic from the .clang_complete files
-"let g:syntastic_c_config_file='.clang_complete'
-"let g:syntastic_cpp_config_file='.clang_complete'
-let g:ycm_global_ycm_extra_conf = '/home/dec/vim-config/scripts/ycm_use_clang_complete.py'
-
 " disable auto-commenting on subsequent lines
-au FileType c,cpp setlocal comments-=:// comments+=f://
+autocmd FileType c,cpp setlocal comments-=:// comments+=f://
+" use 4 spaces of indent in python to conform with PEP8 standards
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 
+
+" the clang_complete plugin is disabled in favor of YouCompleteMe,
+" but its .clang_complete config files are useful for syntastic and YCM.
+" obtain include paths for syntastic from the .clang_complete files
+let g:syntastic_c_config_file='.clang_complete'
+let g:syntastic_cpp_config_file='.clang_complete'
+" python module to load include paths from .clang_complete files for YCM
+let g:ycm_global_ycm_extra_conf = '/home/dec/vim-config/scripts/ycm_use_clang_complete.py'
+" more YCM options
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" goto definition using YouCompleteMe plugin
+nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" use the pylint and pep8 checkers for python code
+let g:syntastic_python_checkers = ['pylint','pep8']
+" ignore pylint warnings:
+" C0301: line length over 80 characters
+let g:syntastic_python_pylint_post_args = '--disable=C0301'
+" ignore pep8 warnings:
+" E501: lines over 80 characters
+" W391: blank lines at eof
+let g:syntastic_python_pep8_post_args = '--ignore=E501,W391'
 
