@@ -78,7 +78,8 @@ nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:syntastic_python_checkers = ['pylint','pep8']
 " ignore pylint warnings:
 " C0301: line length over 80 characters
-let g:syntastic_python_pylint_post_args = '--disable=C0301'
+" C0103: invalid variable names
+let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103'
 " ignore pep8 warnings:
 " E501: lines over 80 characters
 " W391: blank lines at eof
