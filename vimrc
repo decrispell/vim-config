@@ -1,3 +1,5 @@
+" location of vim-config git repository
+let vimconfigdir = $HOME . "/vim-config"
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled = []
 if has("win32")
@@ -67,7 +69,8 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4
 let g:syntastic_c_config_file='.clang_complete'
 let g:syntastic_cpp_config_file='.clang_complete'
 " python module to load include paths from .clang_complete files for YCM
-let g:ycm_global_ycm_extra_conf = '/home/dec/vim-config/scripts/ycm_use_clang_complete.py'
+" there has got to be a better way to use variables..
+execute "let g:ycm_global_ycm_extra_conf='".vimconfigdir."/scripts/ycm_use_clang_complete.py"."'"
 " more YCM options
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
