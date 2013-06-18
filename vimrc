@@ -11,8 +11,12 @@ call add(g:pathogen_disabled, 'clang_complete')
 
 "load plugins in the "bundle" directory via pathogen
 execute pathogen#infect()
+"enable syntax highlighting
 syntax on
+"turn on smart indenting
 filetype plugin indent on
+"align function arguments on next line with previous args
+set cino=(0
 
 "highlight search things
 set hlsearch 
