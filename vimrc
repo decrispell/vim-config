@@ -8,12 +8,6 @@ if has("win32")
 endif
 " use YouCompleteMe instead of clang_complete
 call add(g:pathogen_disabled, 'clang_complete')
-"call add(g:pathogen_disabled, 'powerline')
-
-" add powerline to runtime path
-"execute "set rtp+=".vimconfigdir."/vim/bundle/powerline/powerline/bindings/vim"
-" makes powerline look not as nice, but doesnt require patched fonts.
-"let g:powerline_config_overrides={"common": {"dividers": {"left": {"hard": " ", "soft": "| "}, "right": {"hard": " ", "soft": " |"}}}}
 
 "load plugins in the "bundle" directory via pathogen
 execute pathogen#infect()
