@@ -40,9 +40,6 @@
 [submodule "vim/bundle/vim-protobuf"]
 	path = vim/bundle/vim-protobuf
 	url = git://github.com/uarun/vim-protobuf.git
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "vim/bundle/vim-neatstatus"]
 	path = vim/bundle/vim-neatstatus
 	url = git://github.com/maciakl/vim-neatstatus.git
