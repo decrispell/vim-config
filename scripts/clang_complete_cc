@@ -1,0 +1,3 @@
+#!/bin/bash
+exec $HOME/.vim/bundle/clang_complete/bin/cc_args.py /usr/bin/cc $@
+
