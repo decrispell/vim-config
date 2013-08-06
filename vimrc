@@ -87,7 +87,9 @@ let g:syntastic_python_checkers = ['pylint','pep8']
 " C0301: line length over 80 characters
 " C0103: invalid variable names
 " R0914: too many local variables
-let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0914'
+" C0324: comma not followed by space
+" C0321: multiple statements on single line
+let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0914,C0324,C0321'
 " ignore pep8 warnings:
 " E501: lines over 80 characters
 " W391: blank lines at eof
