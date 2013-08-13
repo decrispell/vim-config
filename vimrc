@@ -101,5 +101,5 @@ let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0914,C0324,C03
 " E228: missing whitespace around operator
 " E231: msising whitespace after ','
 " W391: blank lines at eof
-let g:syntastic_python_pep8_post_args = '--ignore=E501,W391,E226,E201,E202,E231'
+let g:syntastic_python_pep8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,W391'
 
