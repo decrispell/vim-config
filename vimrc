@@ -92,10 +92,14 @@ let g:syntastic_python_checkers = ['pylint','pep8']
 let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0914,C0324,C0321'
 " ignore pep8 warnings:
 " E501: lines over 80 characters
-" W391: blank lines at eof
-" E226: missing whitespace around arithmetic operator
 " E201: whitespace after '('
 " E202: whitespace before ')'
 " E221: missing whitespace around operator
+" E225: missing whitespace around operator
+" E226: missing whitespace around operator
+" E227: missing whitespace around operator
+" E228: missing whitespace around operator
+" E231: msising whitespace after ','
+" W391: blank lines at eof
 let g:syntastic_python_pep8_post_args = '--ignore=E501,W391,E226,E201,E202,E231'
 
