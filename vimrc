@@ -96,5 +96,6 @@ let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0914,C0324,C03
 " E226: missing whitespace around arithmetic operator
 " E201: whitespace after '('
 " E202: whitespace before ')'
-let g:syntastic_python_pep8_post_args = '--ignore=E501,W391,E226,E201,E202'
+" E221: missing whitespace around operator
+let g:syntastic_python_pep8_post_args = '--ignore=E501,W391,E226,E201,E202,E231'
 
