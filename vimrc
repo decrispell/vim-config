@@ -27,6 +27,9 @@ set shiftwidth=2
 " insert spaces in place of <tab> - use CTRL-V<Tab> to insert a real tab
 set expandtab
 
+" Y yanks to end of line (removed from vim-sensible plugin for some reason)
+noremap Y y$
+
 " use the comma key as <leader> - easier to reach than \
 let mapleader = ","
 " ,cd changes directory to location of current file
@@ -90,7 +93,8 @@ let g:syntastic_python_checkers = ['pylint','pep8']
 " R0914: too many local variables
 " C0324: comma not followed by space
 " C0321: multiple statements on single line
-let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0913,R0914,C0324,C0321'
+" W0142: used * or ** magic
+let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0913,R0914,C0324,C0321,W0142'
 " ignore pep8 warnings:
 " E501: lines over 80 characters
 " E201: whitespace after '('
