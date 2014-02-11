@@ -56,6 +56,8 @@ set smartcase
 set nu
 
 " set color scheme: .gvimrc should override for gvim
+"set t_Co=256
+let g:solarized_termcolors=256
 colorscheme solarized
 set background=dark
 
