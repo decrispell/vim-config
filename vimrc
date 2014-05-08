@@ -57,9 +57,10 @@ set nu
 
 " set color scheme: .gvimrc should override for gvim
 "set t_Co=256
-let g:solarized_termcolors=256
-colorscheme solarized
 set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+colorscheme solarized
 
 " use Ctrl+h,j,k,l to move between windows
 :nmap <C-h> <C-w>h
@@ -77,6 +78,8 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4
 " obtain include paths for syntastic from the .clang_complete files
 let g:syntastic_c_config_file='.clang_complete'
 let g:syntastic_cpp_config_file='.clang_complete'
+" automatically populate vim's location list with errors
+let g:syntastic_always_populate_loc_list=1
 " python module to load include paths from .clang_complete files for YCM
 " there has got to be a better way to use variables..
 execute "let g:ycm_global_ycm_extra_conf='".vimconfigdir."/scripts/ycm_use_clang_complete.py"."'"
@@ -111,4 +114,7 @@ let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0912,R0913,R09
 " E231: msising whitespace after ','
 " W391: blank lines at eof
 let g:syntastic_python_pep8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,W391'
+
+" mapping for Gundo plugin
+nnoremap <F5> :GundoToggle<CR>
 

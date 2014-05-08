@@ -1,4 +1,4 @@
-colorscheme solarized
+"colorscheme solarized
 
 if has("gui_gtk2")
   set guifont=Monospace\ 10
