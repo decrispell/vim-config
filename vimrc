@@ -100,8 +100,9 @@ let g:syntastic_python_checkers = ['pylint','pep8']
 " R0915: too many statements
 " C0324: comma not followed by space
 " C0321: multiple statements on single line
+" C0325: superfluous parentheses ( gives annoying warning for 'print(..)' )
 " W0142: used * or ** magic
-let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0912,R0913,R0914,R0915,C0324,C0321,W0142'
+let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0912,R0913,R0914,R0915,C0324,C0325,C0321,W0142'
 " ignore pep8 warnings:
 " E501: lines over 80 characters
 " E201: whitespace after '('
@@ -115,6 +116,11 @@ let g:syntastic_python_pylint_post_args = '--disable=C0301,C0103,R0912,R0913,R09
 " W391: blank lines at eof
 let g:syntastic_python_pep8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,W391'
 
+let g:alternateExtensions_h = "c,cpp,cxx,txx,hpp,C,CPP,CXX,TXX,HPP"
+let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,C,CPP,CXX,TXX,HPP"
+let g:alternateExtensions_txx = "h,H"
+let g:alternateExtensions_TXX = "h,H"
+
 " mapping for Gundo plugin
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F2> :GundoToggle<CR>
 
