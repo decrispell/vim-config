@@ -121,6 +121,18 @@ let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,C,CPP,CXX,TXX,HPP"
 let g:alternateExtensions_txx = "h,H"
 let g:alternateExtensions_TXX = "h,H"
 
+" fuzzy file searching via ctrl-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" use directory of current file as starting point
+let g:ctrlp_working_path_mode = 'a'
+
+" use the silver searcher if available
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " mapping for Gundo plugin
 nnoremap <F2> :GundoToggle<CR>
 
