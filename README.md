@@ -33,9 +33,9 @@ Assuming you have a recent version of libclang (>= v2.5) installed on your syste
 
 2) run CMake
 
-<code>cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/cpp -DUSE_SYSTEM_LIBCLANG=ON</code>
+<code>cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp -DUSE_SYSTEM_LIBCLANG=ON</code>
 
 3) build the plugin (the binary will be copied to the YouCompleteMe directory)
 
-<code>make ycm_core</code>
+<code>make ycm_support_libs</code>
 
