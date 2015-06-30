@@ -124,8 +124,8 @@ let g:alternateExtensions_TXX = "h,H"
 " fuzzy file searching via ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-" use directory of current file as starting point
-let g:ctrlp_working_path_mode = 'a'
+" use nearest ancestor containing .git file, or cwd
+let g:ctrlp_working_path_mode = 'ra'
 
 " use the silver searcher if available
 if executable("ag")
@@ -135,4 +135,7 @@ endif
 
 " mapping for Gundo plugin
 nnoremap <F2> :GundoToggle<CR>
+
+" EasyMotion mapping
+map <Leader> <Plug>(easymotion-prefix)
 
