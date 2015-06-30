@@ -3,7 +3,6 @@
 import os.path
 
 default_flags = [
-    '-Wc++98-compat',
     '-DUSE_CLANG_COMPLETER',
     '-std=c++11',
     '-I',
@@ -30,6 +29,7 @@ def FlagsForFile(filename):
         return {'flags': default_flags, 'do_cache': True}
     flags = [line.strip() for line in fd.readlines()]
     flags.append('-DUSE_CLANG_COMPLETER')
+    flags.append('-std=c++11')
     return {
         'flags': flags, 'do_cache': True
     }
