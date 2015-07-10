@@ -59,7 +59,7 @@ set nu
 "set t_Co=256
 set background=dark
 "let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " use Ctrl+h,j,k,l to move between windows
@@ -138,4 +138,11 @@ nnoremap <F2> :GundoToggle<CR>
 
 " EasyMotion mapping
 map <Leader> <Plug>(easymotion-prefix)
+
+" tell vim about italics code.
+set t_ZH=[3m
+set t_ZR=[23m
+
+" comments look nice in italics
+highlight Comment cterm=italic
 
