@@ -9,6 +9,9 @@ endif
 " use YouCompleteMe instead of clang_complete
 call add(g:pathogen_disabled, 'clang_complete')
 
+" enable mouse in all modes
+set mouse=a
+
 "load plugins in the "bundle" directory via pathogen
 execute pathogen#infect()
 "enable syntax highlighting
@@ -73,19 +76,12 @@ autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 " use 4 spaces of indent in python to conform with PEP8 standards
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 
 
-" the clang_complete plugin is disabled in favor of YouCompleteMe,
-" but its .clang_complete config files are useful for syntastic and YCM.
-" obtain include paths for syntastic from the .clang_complete files
-let g:syntastic_c_config_file='.clang_complete'
-let g:syntastic_cpp_config_file='.clang_complete'
 " automatically populate vim's location list with errors
 let g:syntastic_always_populate_loc_list=1
-" python module to load include paths from .clang_complete files for YCM
-" there has got to be a better way to use variables..
-execute "let g:ycm_global_ycm_extra_conf='".vimconfigdir."/scripts/ycm_use_clang_complete.py"."'"
+
 " more YCM options
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 " goto definition using YouCompleteMe plugin
 nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -145,4 +141,7 @@ set t_ZR=[23m
 
 " comments look nice in italics
 highlight Comment cterm=italic
+
+" spell checking
+set spell spelllang=en_us
 
