@@ -146,3 +146,4 @@ highlight Comment cterm=italic
 " spell checking
 set spell spelllang=en_us
 
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
