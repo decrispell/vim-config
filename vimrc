@@ -33,8 +33,9 @@ set expandtab
 " Y yanks to end of line (removed from vim-sensible plugin for some reason)
 noremap Y y$
 
-" use the comma key as <leader> - easier to reach than \
-let mapleader = ","
+" use the space bar as <leader> - easier to reach than \
+map <Space> <Leader>
+
 " ,cd changes directory to location of current file
 noremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
