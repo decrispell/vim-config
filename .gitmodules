@@ -14,10 +14,6 @@
 	path = vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
   ignore = untracked
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-  ignore = untracked
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
