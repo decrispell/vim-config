@@ -1,7 +1,7 @@
 " location of vim-config git repository
 let vimconfigdir = $HOME . "/vim-config"
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ["gundo"]
 if has("win32")
   " disable windows-specific stuff here
   call add(g:pathogen_disabled, 'YouCompleteMe')
@@ -20,7 +20,7 @@ filetype plugin indent on
 set cino=(0
 
 "highlight search things
-set hlsearch 
+set hlsearch
 
 "set tab width
 set tabstop=2
@@ -73,7 +73,7 @@ colorscheme solarized
 " disable auto-commenting on subsequent lines
 autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 " use 4 spaces of indent in python to conform with PEP8 standards
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " automatically populate vim's location list with errors
 let g:syntastic_always_populate_loc_list=1
