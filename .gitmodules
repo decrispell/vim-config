@@ -22,14 +22,6 @@
 	path = vim/bundle/vim-opencl
 	url = https://github.com/petRUShka/vim-opencl.git
   ignore = untracked
-[submodule "vim/bundle/conque-term"]
-	path = vim/bundle/conque-term
-	url = https://github.com/rosenfeld/conque-term.git
-  ignore = untracked
-[submodule "vim/bundle/snipmate.vim"]
-	path = vim/bundle/snipmate.vim
-	url = https://github.com/msanders/snipmate.vim.git
-  ignore = untracked
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = git://github.com/Valloric/YouCompleteMe.git

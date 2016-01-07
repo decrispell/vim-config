@@ -6,8 +6,6 @@ if has("win32")
   " disable windows-specific stuff here
   call add(g:pathogen_disabled, 'YouCompleteMe')
 endif
-" use YouCompleteMe instead of clang_complete
-call add(g:pathogen_disabled, 'clang_complete')
 
 " enable mouse in all modes
 set mouse=a
