@@ -6,23 +6,35 @@ Plugins are managed using "pathogen", and stored as git submodules in the "bundl
 
 The easiest way to use this repository is to check out a local copy and create the appropriate links, e.g.
 
-<code>cd ~</code>
-<code>git clone --recursive https://github.com/decrispell/vim-config.git vim-config</code>
+```shell
+cd ~
+git clone --recursive https://github.com/decrispell/vim-config.git vim-config
+```
 
 On Linux/Mac:
 
-<code>ln -s vim-config/vimrc .vimrc</code>
-<code>ln -s vim-config/gvimrc .gvimrc</code>
-<code>ln -s vim-config/vim .vim</code>
+```shell
+ln -s vim-config/vimrc .vimrc
+ln -s vim-config/gvimrc .gvimrc
+ln -s vim-config/vim .vim
+```
 
 On Windows:
 (from Documents and Settings/{User})
-<code>mklink /J vimfiles vim-config\vim </code>
-<code>mklink /H _vimrc vim-config\vimrc </code>
-
+```shell
+mklink /J vimfiles vim-config\vim
+mklink /H _vimrc vim-config\vimrc
+```
 
 In order to use the "YouCompleteMe" auto-completion plugin, you must build the plugin's plugin code.
 
-<code> cd vim/bundle/YouCompleteMe </code>
-<code> ./install.py --clang-completer </code>
+```shell
+cd vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
 
+When pulling updates, be sure to update the submodules afterwards:
+```shell
+git pull
+git submodule update --init --recursive
+```
