@@ -145,3 +145,8 @@ highlight Comment cterm=italic
 set spell spelllang=en_us
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Use Escape to exit terminal mode (neovim only)
+if has('nvim')
+:tnoremap <Esc> <C-\><C-n>
+endif
