@@ -25,7 +25,7 @@ Plug 'jlanzarotta/bufexplorer'
 " syntax checking
 Plug 'scrooloose/syntastic'
 " Autocompletion / goto definition / etc.
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 
