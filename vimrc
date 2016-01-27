@@ -69,7 +69,12 @@ noremap <silent> <leader>b :BufExplorer<CR>
 
 "Filetype associations
 " txx template files
+" For some reason, both of the following lines are needed;
+" The first to get YouCompleteMe to respect the filetype on some files, and
+" the second to prevent txx files from being recongnized as conf type.  I
+" don't understand exactly what is causing this, but this seems to work.
 au BufNewFile,BufRead *.txx setfiletype cpp
+au BufNewFile,BufRead *.txx set filetype=cpp
 
 " autocomplete options
 set wildmenu
