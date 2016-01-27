@@ -1,4 +1,5 @@
 *.pyc
 .netrwhist
 vim/spell
+plugged
 

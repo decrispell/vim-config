@@ -1,21 +1,43 @@
-" location of vim-config git repository
-let vimconfigdir = $HOME . "/vim-config"
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ["gundo"]
-if has("win32")
-  " disable windows-specific stuff here
-  call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
+" PLUGINS (via vim-plug)
+call plug#begin($HOME . "/vim-config/plugged")
+" Solarized colorscheme
+Plug 'altercation/vim-colors-solarized'
+" sensible defaults
+Plug 'tpope/vim-sensible'
+" easy switching between headers and source
+Plug 'vim-scripts/a.vim'
+" protobuf syntax
+Plug 'uarun/vim-protobuf'
+" json syntax
+Plug 'elzr/vim-json'
+" fugitive for git integration
+Plug 'tpope/vim-fugitive'
+" Ctrl-P for fuzzy file searching
+Plug 'kien/ctrlp.vim'
+" mundo/gundo for undo tree traversal
+Plug 'simnalamburt/vim-mundo'
+" lightweight status bar
+Plug 'bling/vim-airline'
+" lightweight file manager settings
+Plug 'tpope/vim-vinegar'
+" explore open buffers
+Plug 'jlanzarotta/bufexplorer'
+" syntax checking
+Plug 'scrooloose/syntastic'
+" Autocompletion / goto definition / etc.
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+call plug#end()
+" END PLUGINS
 
 " enable mouse in all modes
 set mouse=a
 
-"load plugins in the "bundle" directory via pathogen
-execute pathogen#infect()
 "enable syntax highlighting
 syntax on
+
 "turn on smart indenting
 filetype plugin indent on
+
 "align function arguments on next line with previous args
 set cino=(0
 

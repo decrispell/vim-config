@@ -2,7 +2,7 @@ vim-config
 ==========
 
 A set of configuration files and plugins for the vim text editor.
-Plugins are managed using "pathogen", and stored as git submodules in the "bundle" directory.
+Plugins are managed using [vim-plug](https://github.com/junegunn/vim-plug).
 
 The easiest way to use this repository is to check out a local copy and create the appropriate links, e.g.
 
@@ -26,15 +26,9 @@ mklink /J vimfiles vim-config\vim
 mklink /H _vimrc vim-config\vimrc
 ```
 
-In order to use the "YouCompleteMe" auto-completion plugin, you must build the plugin's plugin code.
-
-```shell
-cd vim/bundle/YouCompleteMe
-./install.py --clang-completer
+[Vim-Plug](https://github.com/junegunn/vim-plug) is used to manage plugins.  You should run
 ```
-
-When pulling updates, be sure to update the submodules afterwards:
-```shell
-git pull
-git submodule update --init --recursive
+:PlugInstall
+```
+inside of vim to perform the installation of plugins.
 ```
