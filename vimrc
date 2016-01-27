@@ -69,7 +69,7 @@ noremap <silent> <leader>b :BufExplorer<CR>
 
 "Filetype associations
 " txx template files
-au BufNewFile,BufRead *.txx set filetype=cpp
+au BufNewFile,BufRead *.txx setfiletype cpp
 
 " autocomplete options
 set wildmenu

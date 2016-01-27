@@ -147,7 +147,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 
 def IsHeaderFile( filename ):
   extension = os.path.splitext( filename )[ 1 ]
-  return extension in [ '.h', '.hxx', '.hpp', '.hh', 'txx' ]
+  return extension in [ '.h', '.hxx', '.hpp', '.hh', '.txx' ]
 
 
 def GetCompilationInfoForFile( filename ):
@@ -155,6 +155,7 @@ def GetCompilationInfoForFile( filename ):
   # for header files. So we do our best by asking the db for flags for a
   # corresponding source file, if any. If one exists, the flags for that file
   # should be good enough.
+  # If no such file exists, find any other file in the directory with compilation flags.
   if IsHeaderFile( filename ):
     basename = os.path.splitext( filename )[ 0 ]
     for extension in SOURCE_EXTENSIONS:
@@ -164,6 +165,16 @@ def GetCompilationInfoForFile( filename ):
           replacement_file )
         if compilation_info.compiler_flags_:
           return compilation_info
+    # else try all other source files in the directory
+    dirname = os.path.split( filename )[0]
+    dirfiles = os.listdir( dirname )
+    for replacement_base in dirfiles:
+        replacement_file = os.path.join(dirname, replacement_base)
+        fname_extension = os.path.splitext( replacement_file )[1]
+        if fname_extension in SOURCE_EXTENSIONS:
+            compilation_info = database.GetCompilationInfoForFile( replacement_file )
+            if compilation_info.compiler_flags_:
+                return compilation_info
     return None
   return database.GetCompilationInfoForFile( filename )
 
