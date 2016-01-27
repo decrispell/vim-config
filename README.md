@@ -31,4 +31,6 @@ mklink /H _vimrc vim-config\vimrc
 :PlugInstall
 ```
 inside of vim to perform the installation of plugins. Vim might complain about missing colorschemes before you do this step.
-```
+
+
+The [flake8](https://pypi.python.org/pypi/flake8) checker is used (via [syntastic](https://github.com/scrooloose/syntastic)) to check python code. You need to have it installed on your system for this to work.
