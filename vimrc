@@ -26,6 +26,9 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'scrooloose/syntastic'
 " Autocompletion / goto definition / etc.
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" The Silver Searcher (grep/ack replacement)
+Plug 'rking/ag.vim'
+
 call plug#end()
 " END PLUGINS
 
