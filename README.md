@@ -8,7 +8,7 @@ The easiest way to use this repository is to check out a local copy and create t
 
 ```shell
 cd ~
-git clone --recursive https://github.com/decrispell/vim-config.git vim-config
+git clone https://github.com/decrispell/vim-config.git vim-config
 ```
 
 On Linux/Mac:
@@ -30,5 +30,7 @@ mklink /H _vimrc vim-config\vimrc
 ```
 :PlugInstall
 ```
-inside of vim to perform the installation of plugins.
-```
+inside of vim to perform the installation of plugins. Vim might complain about missing colorschemes before you do this step.
+
+
+The [flake8](https://pypi.python.org/pypi/flake8) checker is used (via [syntastic](https://github.com/scrooloose/syntastic)) to check python code. You need to have it installed on your system for this to work.
