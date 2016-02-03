@@ -89,11 +89,10 @@ set smartcase
 " turn on line numbers
 set nu
 
-" set color scheme: .gvimrc should override for gvim
-"set t_Co=256
-set background=dark
+" Colorscheme stuff
+" uncomment the line below if your terminal is _not_ using the solarized color pallete
 "let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+set background=dark
 colorscheme solarized
 
 " use Ctrl+h,j,k,l to move between windows
