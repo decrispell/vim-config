@@ -28,6 +28,8 @@ Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
+" Convenient mappings for common unixy commands
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 " END PLUGINS
