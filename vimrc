@@ -1,5 +1,6 @@
 " PLUGINS (via vim-plug)
-call plug#begin($HOME . "/vim-config/plugged")
+let vimplug_root = $HOME . "/vim-config/plugged"
+call plug#begin(vimplug_root)
 " Solarized colorscheme
 Plug 'altercation/vim-colors-solarized'
 " sensible defaults
@@ -17,7 +18,9 @@ Plug 'kien/ctrlp.vim'
 " mundo/gundo for undo tree traversal
 Plug 'simnalamburt/vim-mundo'
 " lightweight status bar
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+" themes for airline
+Plug 'vim-airline/vim-airline-themes'
 " lightweight file manager settings
 Plug 'tpope/vim-vinegar'
 " explore open buffers
@@ -30,6 +33,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
 Plug 'tpope/vim-eunuch'
+" Color matching parens,braces,etc. with matching colors for better readability
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 " END PLUGINS
@@ -141,6 +146,8 @@ let g:alternateExtensions_TXX = "h,H"
 " fuzzy file searching via ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+" <Leader>p shortcut
+nnoremap <Leader>p <C-p>
 " use nearest ancestor containing .git file, or cwd
 let g:ctrlp_working_path_mode = 'ra'
 
@@ -166,7 +173,21 @@ highlight Comment cterm=italic
 " spell checking
 set spell spelllang=en_us
 
+" filename *.md  => markdown filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" shortcut to save
+nnoremap <Leader>w :w<CR>
+
+" leave rainbow parens off by default, enable with <Leader>r
+let g:rainbow_active=0
+nnoremap <Leader>r :RainbowToggle<CR>
+
+" shortcut for make
+nnoremap <Leader>m :make!<CR>
+
+" disable powerline fonts - you'll need to install fonts before enabling
+let g:airline_powerline_fonts = 0
 
 " Use Escape to exit terminal mode (neovim only)
 if has('nvim')
