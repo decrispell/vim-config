@@ -27,8 +27,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'jlanzarotta/bufexplorer'
 " syntax checking
 Plug 'scrooloose/syntastic'
-" Autocompletion / goto definition / etc.
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+if has('windows')
+  " Autocompletion / goto definition / etc.
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+endif
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
@@ -191,5 +193,5 @@ let g:airline_powerline_fonts = 0
 
 " Use Escape to exit terminal mode (neovim only)
 if has('nvim')
-:tnoremap <Esc> <C-\><C-n>
+  :tnoremap <Esc> <C-\><C-n>
 endif
