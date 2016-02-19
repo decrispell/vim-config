@@ -192,6 +192,6 @@ nnoremap <Leader>m :make!<CR>
 let g:airline_powerline_fonts = 0
 
 " Use Escape to exit terminal mode (neovim only)
-if has('nvim')
+if !has('win32')
   :tnoremap <Esc> <C-\><C-n>
 endif
