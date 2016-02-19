@@ -188,8 +188,12 @@ nnoremap <Leader>r :RainbowToggle<CR>
 " shortcut for make
 nnoremap <Leader>m :make!<CR>
 
-" disable powerline fonts - you'll need to install fonts before enabling
-let g:airline_powerline_fonts = 0
+" powerline fonts only working on mac
+if has('mac')
+  let g:airline_powerline_fonts = 1
+else
+  let g:airline_powerline_fonts = 0
+endif
 
 " Use Escape to exit terminal mode (neovim only)
 if !has('win32')
