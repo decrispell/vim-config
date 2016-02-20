@@ -27,7 +27,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'jlanzarotta/bufexplorer'
 " syntax checking
 Plug 'scrooloose/syntastic'
-if has('windows')
+if !has('win32')
   " Autocompletion / goto definition / etc.
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 endif
@@ -119,11 +119,13 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" more YCM options
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-" goto definition using YouCompleteMe plugin
-nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if !has('win32')
+  " more YCM options
+  "let g:ycm_autoclose_preview_window_after_completion = 1
+  "let g:ycm_autoclose_preview_window_after_insertion = 1
+  " goto definition using YouCompleteMe plugin
+  nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 " use the pylint and pep8 checkers for python code
 let g:syntastic_python_checkers = ['flake8']
@@ -196,6 +198,6 @@ else
 endif
 
 " Use Escape to exit terminal mode (neovim only)
-if !has('win32')
-  :tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
 endif
