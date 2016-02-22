@@ -37,6 +37,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'luochen1990/rainbow'
 " Make editing Latex documents nicer
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Comment text using 'gc'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 " END PLUGINS
