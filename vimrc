@@ -27,8 +27,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'jlanzarotta/bufexplorer'
 " syntax checking
 Plug 'scrooloose/syntastic'
-" Autocompletion / goto definition / etc.
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+if !has('win32')
+  " Autocompletion / goto definition / etc.
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+endif
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
@@ -123,11 +125,13 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" more YCM options
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-" goto definition using YouCompleteMe plugin
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if !has('win32')
+  " more YCM options
+  "let g:ycm_autoclose_preview_window_after_completion = 1
+  "let g:ycm_autoclose_preview_window_after_insertion = 1
+  " goto definition using YouCompleteMe plugin
+  nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 " use the pylint and pep8 checkers for python code
 let g:syntastic_python_checkers = ['flake8']
@@ -192,10 +196,14 @@ nnoremap <Leader>r :RainbowToggle<CR>
 " shortcut for make
 nnoremap <Leader>m :make!<CR>
 
-" disable powerline fonts - you'll need to install fonts before enabling
-let g:airline_powerline_fonts = 0
+" powerline fonts only working on mac
+if has('mac')
+  let g:airline_powerline_fonts = 1
+else
+  let g:airline_powerline_fonts = 0
+endif
 
 " Use Escape to exit terminal mode (neovim only)
 if has('nvim')
-:tnoremap <Esc> <C-\><C-n>
+  tnoremap <Esc> <C-\><C-n>
 endif
