@@ -35,6 +35,8 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-eunuch'
 " Color matching parens,braces,etc. with matching colors for better readability
 Plug 'luochen1990/rainbow'
+" Make editing Latex documents nicer
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
 " END PLUGINS
@@ -66,13 +68,15 @@ noremap Y y$
 " use the space bar as <leader> - easier to reach than \
 map <Space> <Leader>
 
-" ,cd changes directory to location of current file
+" <Leader>cd changes directory to location of current file
 noremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" ,z switches to previous buffer
+" <Leader>z switches to previous buffer
 noremap <leader>z :e#<CR>
-" ,b loads bufexplorer plugin
+" <Leader>b loads bufexplorer plugin
 noremap <silent> <leader>b :BufExplorer<CR>
+" disable default mappings so vim doesn't wait to see if <Leader>b[x] is going to be pressed
+let g:bufExplorerDisableDefaultKeyMapping=1
 
 "Filetype associations
 " txx template files
@@ -121,7 +125,7 @@ let g:syntastic_check_on_wq = 0
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 " goto definition using YouCompleteMe plugin
-nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " use the pylint and pep8 checkers for python code
 let g:syntastic_python_checkers = ['flake8']
