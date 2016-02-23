@@ -167,8 +167,12 @@ if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" mapping for Gundo plugin
-nnoremap <F2> :GundoToggle<CR>
+" persist undo information
+set undofile
+set undodir=~/.vim/undo
+
+" mapping for Mundo plugin
+nnoremap <Leader>u :MundoToggle<CR>
 
 " EasyMotion mapping
 map <Leader> <Plug>(easymotion-prefix)
