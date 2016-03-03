@@ -41,6 +41,8 @@ Plug 'luochen1990/rainbow'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Comment text using 'gc'
 Plug 'tpope/vim-commentary'
+" git status in the sign column
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 " END PLUGINS
