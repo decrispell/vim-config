@@ -34,3 +34,5 @@ inside of vim to perform the installation of plugins. Vim might complain about m
 
 
 The [flake8](https://pypi.python.org/pypi/flake8) checker is used (via [syntastic](https://github.com/scrooloose/syntastic)) to check python code. You need to have it installed on your system for this to work.
+
+On OS X (at least), neovim requires the neovim python package to support plugins like YouCompleteMe. install with 'pip install neovim'.

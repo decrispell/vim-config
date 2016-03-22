@@ -105,7 +105,7 @@ set smartcase
 set nu
 
 " Colorscheme stuff
-" uncomment the line below if your terminal is _not_ using the solarized color pallete
+" uncomment the line below if your terminal is _not_ using the solarized color palette
 "let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
