@@ -56,8 +56,8 @@ syntax on
 "turn on smart indenting
 filetype plugin indent on
 
-"align function arguments on next line with previous args
-set cino=(0
+" c/c++ indentation options. See :help cinoptions-values for description
+set cino=(0,N-s,g0
 
 "highlight search things
 set hlsearch
