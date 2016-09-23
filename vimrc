@@ -56,8 +56,8 @@ syntax on
 "turn on smart indenting
 filetype plugin indent on
 
-"align function arguments on next line with previous args
-set cino=(0
+" c/c++ indentation options. See :help cinoptions-values for description
+set cino=(0,N-s,g0
 
 "highlight search things
 set hlsearch
@@ -150,10 +150,12 @@ let g:syntastic_python_checkers = ['flake8']
 " W391: blank lines at eof
 let g:syntastic_python_flake8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,W391'
 
-let g:alternateExtensions_h = "c,cpp,cxx,txx,hpp,C,CPP,CXX,TXX,HPP"
-let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,C,CPP,CXX,TXX,HPP"
+let g:alternateExtensions_h = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
+let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
 let g:alternateExtensions_txx = "h,H"
 let g:alternateExtensions_TXX = "h,H"
+let g:alternateExtensions_hxx = "h,H"
+let g:alternateExtensions_HXX = "h,H"
 
 " fuzzy file searching via ctrl-P
 let g:ctrlp_map = '<c-p>'
