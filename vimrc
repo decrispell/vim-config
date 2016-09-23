@@ -15,8 +15,8 @@ Plug 'elzr/vim-json'
 Plug 'tpope/vim-fugitive'
 " Ctrl-P for fuzzy file searching
 Plug 'kien/ctrlp.vim'
-" mundo/gundo for undo tree traversal
-Plug 'simnalamburt/vim-mundo'
+" undo tree traversal
+Plug 'mbbill/undotree'
 " lightweight status bar
 Plug 'vim-airline/vim-airline'
 " themes for airline
