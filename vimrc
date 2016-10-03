@@ -159,6 +159,10 @@ let g:alternateExtensions_TXX = "h,H"
 let g:alternateExtensions_hxx = "h,H"
 let g:alternateExtensions_HXX = "h,H"
 
+" highlight and jump between matching angle brackets.
+" This is especially useful for heavily templated C++
+set matchpairs+=<:>
+
 " fuzzy file searching via ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
