@@ -31,6 +31,8 @@ if !has('win32')
   " Autocompletion / goto definition / etc.
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 endif
+" Installing this mainly because YouCompleteMe seems to assume its there..
+Plug 'SirVer/ultisnips'
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
