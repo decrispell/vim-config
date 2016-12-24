@@ -15,8 +15,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 " Ctrl-P for fuzzy file searching
 Plug 'kien/ctrlp.vim'
-" mundo/gundo for undo tree traversal
-Plug 'simnalamburt/vim-mundo'
+" undo tree traversal
+Plug 'mbbill/undotree'
 " lightweight status bar
 Plug 'vim-airline/vim-airline'
 " themes for airline
@@ -31,6 +31,8 @@ if !has('win32')
   " Autocompletion / goto definition / etc.
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 endif
+" Installing this mainly because YouCompleteMe seems to assume its there..
+Plug 'SirVer/ultisnips'
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
@@ -156,6 +158,10 @@ let g:alternateExtensions_txx = "h,H"
 let g:alternateExtensions_TXX = "h,H"
 let g:alternateExtensions_hxx = "h,H"
 let g:alternateExtensions_HXX = "h,H"
+
+" highlight and jump between matching angle brackets.
+" This is especially useful for heavily templated C++
+set matchpairs+=<:>
 
 " fuzzy file searching via ctrl-P
 let g:ctrlp_map = '<c-p>'
