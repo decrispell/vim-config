@@ -9,8 +9,8 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-scripts/a.vim'
 " protobuf syntax
 Plug 'uarun/vim-protobuf'
-" json syntax
-Plug 'elzr/vim-json'
+" language syntax
+Plug 'sheerun/vim-polyglot'
 " fugitive for git integration
 Plug 'tpope/vim-fugitive'
 " Ctrl-P for fuzzy file searching
