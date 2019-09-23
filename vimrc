@@ -1,3 +1,4 @@
+set encoding=utf-8
 " PLUGINS (via vim-plug)
 let vimplug_root = $HOME . "/vim-config/plugged"
 call plug#begin(vimplug_root)
@@ -25,8 +26,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-vinegar'
 " explore open buffers
 Plug 'jlanzarotta/bufexplorer'
-" syntax checking
-Plug 'scrooloose/syntastic'
 if !has('win32')
   " Autocompletion / goto definition / etc.
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
