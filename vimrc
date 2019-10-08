@@ -1,3 +1,4 @@
+set encoding=utf-8
 " PLUGINS (via vim-plug)
 let vimplug_root = $HOME . "/vim-config/plugged"
 call plug#begin(vimplug_root)
@@ -25,11 +26,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-vinegar'
 " explore open buffers
 Plug 'jlanzarotta/bufexplorer'
-" syntax checking
-Plug 'scrooloose/syntastic'
+" syntax checking (python not covered by YCM)
+Plug 'vim-syntastic/syntastic'
 if !has('win32')
   " Autocompletion / goto definition / etc.
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer' }
 endif
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
@@ -108,7 +109,7 @@ set nu
 
 " Colorscheme stuff
 " uncomment the line below if your terminal is _not_ using the solarized color palette
-"let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
@@ -124,10 +125,22 @@ autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " automatically populate vim's location list with errors
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1
+let g:ycm_open_loclist_on_ycm_diags = 1
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'info'
+
+" automatically populate vim's location list with errors
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
 if !has('win32')
   " more YCM options
@@ -135,6 +148,23 @@ if !has('win32')
   "let g:ycm_autoclose_preview_window_after_insertion = 1
   " goto definition using YouCompleteMe plugin
   nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+  " use local pipenv for python completion
+	" Point YCM to the Pipenv created virtualenv, if possible
+	" At first, get the output of 'pipenv --venv' command.
+	let pipenv_venv_path = system('pipenv --venv')
+	" The above system() call produces a non zero exit code whenever
+	" a proper virtual environment has not been found.
+	" So, second, we only point YCM to the virtual environment when
+	" the call to 'pipenv --venv' was successful.
+	" Remember, that 'pipenv --venv' only points to the root directory
+	" of the virtual environment, so we have to append a full path to
+	" the python executable.
+	if shell_error == 0
+		let venv_path = substitute(pipenv_venv_path, '\n', '', '')
+    let g:ycm_python_binary_path = venv_path . '/bin/python'
+	else
+		let g:ycm_python_binary_path = 'python'
+	endif
 endif
 
 " use the pylint and pep8 checkers for python code
@@ -148,9 +178,10 @@ let g:syntastic_python_checkers = ['flake8']
 " E226: missing whitespace around operator
 " E227: missing whitespace around operator
 " E228: missing whitespace around operator
-" E231: msising whitespace after ','
-" W391: blank lines at eof
-let g:syntastic_python_flake8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,W391'
+" E231: missing whitespace after ','
+" E731: do not assign to a lambda expression
+" E402: module level import not at top of file
+let g:syntastic_python_flake8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,E731,E402'
 
 let g:alternateExtensions_h = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
 let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
