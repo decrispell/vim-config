@@ -45,6 +45,8 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'tpope/vim-commentary'
 " git status in the sign column
 Plug 'airblade/vim-gitgutter'
+" don't jump to next occurence when using star search
+Plug 'vim-scripts/star-search'
 
 call plug#end()
 " END PLUGINS
