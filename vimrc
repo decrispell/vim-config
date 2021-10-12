@@ -26,12 +26,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-vinegar'
 " explore open buffers
 Plug 'jlanzarotta/bufexplorer'
-" syntax checking (python not covered by YCM)
-Plug 'vim-syntastic/syntastic'
-if !has('win32')
-  " Autocompletion / goto definition / etc.
-  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer' }
-endif
+" auto completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " The Silver Searcher (grep/ack replacement)
 Plug 'rking/ag.vim'
 " Convenient mappings for common unixy commands
@@ -124,67 +120,93 @@ autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 " use 4 spaces of indent in python to conform with PEP8 standards
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
-" automatically populate vim's location list with errors
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_always_populate_location_list = 1
-let g:ycm_open_loclist_on_ycm_diags = 1
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'info'
+" TextEdit might fail if hidden is not set.
+set hidden
 
-" automatically populate vim's location list with errors
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
-if !has('win32')
-  " more YCM options
-  "let g:ycm_autoclose_preview_window_after_completion = 1
-  "let g:ycm_autoclose_preview_window_after_insertion = 1
-  " goto definition using YouCompleteMe plugin
-  nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-  " use local pipenv for python completion
-	" Point YCM to the Pipenv created virtualenv, if possible
-	" At first, get the output of 'pipenv --venv' command.
-	let pipenv_venv_path = system('pipenv --venv')
-	" The above system() call produces a non zero exit code whenever
-	" a proper virtual environment has not been found.
-	" So, second, we only point YCM to the virtual environment when
-	" the call to 'pipenv --venv' was successful.
-	" Remember, that 'pipenv --venv' only points to the root directory
-	" of the virtual environment, so we have to append a full path to
-	" the python executable.
-	if shell_error == 0
-		let venv_path = substitute(pipenv_venv_path, '\n', '', '')
-    let g:ycm_python_binary_path = venv_path . '/bin/python'
-	else
-		let g:ycm_python_binary_path = 'python'
-	endif
-endif
+" Give more space for displaying messages.
+set cmdheight=2
 
-" use the pylint and pep8 checkers for python code
-let g:syntastic_python_checkers = ['flake8']
-" ignore pep8 warnings:
-" E501: lines over 80 characters
-" E201: whitespace after '('
-" E202: whitespace before ')'
-" E221: missing whitespace around operator
-" E225: missing whitespace around operator
-" E226: missing whitespace around operator
-" E227: missing whitespace around operator
-" E228: missing whitespace around operator
-" E231: missing whitespace after ','
-" E731: do not assign to a lambda expression
-" E402: module level import not at top of file
-let g:syntastic_python_flake8_post_args = '--ignore=E501,E201,E202,E221,E225,E226,E227,E228,E231,E731,E402'
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
-let g:alternateExtensions_h = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
-let g:alternateExtensions_H = "c,cpp,cxx,txx,hpp,hxx,C,CPP,CXX,TXX,HPP,HXX"
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+
+let g:alternateExtensions_h = "c,cc,cpp,cxx,txx,hpp,hxx,C,CC,CPP,CXX,TXX,HPP,HXX"
+let g:alternateExtensions_H = "c,cc,cpp,cxx,txx,hpp,hxx,C,CC,CPP,CXX,TXX,HPP,HXX"
 let g:alternateExtensions_txx = "h,H"
 let g:alternateExtensions_TXX = "h,H"
 let g:alternateExtensions_hxx = "h,H"
