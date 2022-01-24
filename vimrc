@@ -42,6 +42,8 @@ Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 " don't jump to next occurence when using star search
 Plug 'vim-scripts/star-search'
+" OSC 52 functionality for accessing clipboard
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
 call plug#end()
 " END PLUGINS
@@ -269,6 +271,9 @@ if has('mac')
 else
   let g:airline_powerline_fonts = 0
 endif
+
+" Ctrl-c to copy to system clipboard via OSC 52
+vnoremap <C-c> :OSCYank<CR>
 
 " Use Escape to exit terminal mode (neovim only)
 if has('nvim')
